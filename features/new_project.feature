@@ -7,3 +7,4 @@ Feature: New project
   Scenario: New Project… setup dialog
     When I go to New Project
     Then I should see "New Project"
+    And I should see "Project name"

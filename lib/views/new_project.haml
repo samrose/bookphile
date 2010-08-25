@@ -1,5 +1,10 @@
 %h1 New Project
 %p To set up a new Bookphile project:
-%ol
-  %li enter a name
-  %li load the images
+.project_form{id:'new_project_form'}
+  %form{:name => "new", :id => "new", :action => "/create", :method => "post", :enctype => "text/plain"}
+    %fieldset
+      %ol
+        %li
+          %label{:for => "name"} Project name:
+          %input{:type => "text", :name => "name", :class => "text"}
+      %input{:type => "submit", :value => "Create", :class => "button"}
