@@ -43,9 +43,10 @@ describe "#launch" do
   
   describe "#load_images" do
     it "should collect a glob list of all images in the path argument" do
-      Dir.should_receive(:chdir).with("bar/baz")
-      Dir.should_receive(:glob).with("*.{tif,tiff,jpg,jpeg,png}")
+      Dir.stub!(:chdir)
+      FileUtils.stub!(:cp)
       proj = BookphileProject.new("foo")
+      proj.should_receive(:absolute_image_paths).and_return(["foo.tif"])
       proj.launch
       proj.load_images("bar/baz")
     end
